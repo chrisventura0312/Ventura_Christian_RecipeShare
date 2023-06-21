@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Log In</title>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/frontpage.css') }}">
+</head>
+<body>
+    <div id="nav">
+        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="logo" id="logo">
+        <h1>RecipeShare</h1>
+        <ul>
+            <li><a href="/users/login_page">Log In</a></li>
+            <li><a href="/users/register_page">Register</a></li>
+        </ul>
+    </div>
+    <div id="container">
+        <div id="login">
+            <h1>Log In ☺</h1>
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for message in messages %}
+                    <div class="error">
+                        <p >* {{ message }}</p>
+                    </div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+            <form action="/users/login" method="post" class="form">
+                <div class="form_input">
+                    <input type="text" name="email" placeholder="Email" required="required">
+                </div>
+                <div class="form_input">
+                    <input type="password" name="password" placeholder="Password" required="required" id="password" >
+                    <input type="checkbox" id="show-password-checkbox">
+                    <label for="show-password-checkbox">Show Password</label>
+                    <div>
+                        <button type="submit" class="submit">Log In</button>
+                    </div>
+                </div>
+                <br>
+                <a href="/users/register_page" id="no-account">Don't have an account? Register Here!</a>
+            </form>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/login.js') }}" ></script>
+</body>
+</html>

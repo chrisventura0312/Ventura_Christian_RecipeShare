@@ -1,0 +1,198 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body {
+    background-color: #f5f5f5;
+}
+
+#register,
+#login{
+    width: 40%;
+    height: fit-content;;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    margin-bottom: 50px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
+    padding: 20px;
+    padding-bottom: 200px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    border: 1px solid #ccc;
+}
+
+#register h1,
+#login h1 {
+    margin-bottom: 20px;
+    font-size: 2rem;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.form_input {
+    width: 45%;
+    height: 40px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    padding: 5px;
+    position: relative;
+}
+
+.form_input input {
+    width: 100%;
+    height: 100%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.form_input input[type="password"] {
+    padding-right: 35px; /* Increased padding to accommodate the checkbox */
+}
+
+.form_input input[type="checkbox"] {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    appearance: none;
+    background-color: #fff;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.form_input input[type="checkbox"]:checked::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 10px;
+    height: 10px;
+    background-color: #000;
+    border-radius: 50%;
+    
+}
+
+.form_input label {
+    position: absolute;
+    top: 50%;
+    right: 40px;
+    transform: translateY(-50%);
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.submit {
+    width: 100%;
+    height: 40px;
+    border-radius: 5px;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.submit:hover {
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+}
+
+
+#already{
+    text-align: center;
+    margin-top: 20px;
+    margin-left: 5%;
+}
+
+#no-account{
+    text-align: center;
+    margin-top: 30px;
+}
+
+#logo{
+    width: 65px;
+    height: 65px;
+    margin-left: 5%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+#nav{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: rgb(66, 155, 233);
+    margin-bottom: 30px;
+    height: 75px;
+    position: relative;
+}
+
+#nav h1{
+    color: rgb(255, 255, 255);
+    font-size: 2rem;
+}
+
+#nav a{
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+}
+
+#nav a:visited{
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+}
+
+#nav a:hover{
+    color: rgb(0, 0, 0);
+}
+
+#nav h1{
+    margin-left: 2%;
+}
+
+#nav ul{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 20%;
+    position: absolute;
+    right: 0;
+}
+
+#nav ul li{
+    list-style-type: none;
+    margin-left: 10%;
+}
+
+.error{
+    width: 40%;
+    height: fit-content;
+    background-color: lightcoral;
+    color: rgb(151, 0, 0);
+    font-size: 12px;
+    margin-top: 5px;
+    margin-left: 30%;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    font-size: 12pt;
+    font-weight: bold;
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>View Recipe</title>
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/view_recipe.css') }}">
+    </head>
+    <body>
+        <div id="container">
+            <div id="nav">
+                <img src="{{ url_for('static', filename='images/logo.png') }}" alt="logo" id="logo">
+                <h1>RecipeShare</h1>
+                <ul>
+                    <li><a href="/users/logout">Log Out</a></li>
+                </ul>
+            </div>
+            <div id="recipe">
+                <div id="recipeT">
+                    <h1>{{ recipe.name }}</h1>
+                    <p>Created By: {{ recipe.user.username }}</p>
+                    <p>Under 30 Minutes: {{ recipe.under_30 }}</p>
+                </div>
+                <div id="recipeM">
+                    <h3>Description:</h3>
+                    <p>{{ recipe.description }}</p>
+                    <h3>Instructions:</h3>
+                    <p>{{ recipe.instructions }}</p>
+                    <p id="date">Date Made: {{ recipe.date_made }}</p>
+                </div>
+                <div class="buttons">
+                    <a href="/recipes">Back</a>
+                    {% if recipe.users_id == session['user_id'] %}
+                    <a href="/recipes/{{ recipe.id }}/edit">Edit</a>
+                    <a href="/recipes/{{ recipe.id }}/delete">Delete</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

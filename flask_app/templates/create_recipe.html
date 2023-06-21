@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Recipe</title>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/create_recipe.css') }}">
+</head>
+<body>
+    <div id="nav">
+        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="logo" id="logo">
+        <ul>
+            <li><a href="/users/logout">Log Out</a></li>
+        </ul>
+    </div>
+    <div id="container">
+        <div id="recipeCreate">
+            <h1>Create Recipe ☺</h1>
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for message in messages %}
+                    <div class="error">
+                        <p >* {{ message }}</p>
+                    </div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+            <form action="/recipes/new" method="post" class="form">
+                <div id="formT">
+                    <div id="formL">
+                        <label for="recipe-name">Recipe Name:</label>
+                        <input type="text" name="name" id="recipe-name" placeholder="Your Text Here" maxlength="44" required>
+                        <label for="recipe-description">Recipe Description:</label>
+                        <textarea name="description" id="recipe-description" placeholder="Your Text Here" maxlength="400" required></textarea>
+                        <label for="recipe-instructions">Recipe Instructions:</label>
+                        <textarea  name="instructions" id="recipe-instructions" placeholder="Your Text Here" maxlength="1999" required></textarea>
+                    </div>
+                    <div id="formR">
+                        <label for = 'date-made'>Date Made:</label>
+                        <input type="text" name="date-made" id="date-made" pattern="\d{2}-\d{2}-\d{4}" placeholder="MM-DD-YYYY" required>
+                        <label for="under_30">Under 30 Minutes:</label>
+                        <div id="under_30">
+                            <label for="under_30_yes">Yes</label>
+                            <input type="radio" id="under_30_yes" name="under_30" value="Yes" class="radio" required>
+                            <label for="under_30_no">No</label>
+                            <input type="radio" id="under_30_no" name="under_30" value="No" class="radio" required>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div id="formB">
+                    <a href="/recipes">Cancel</a>
+                    <input type="submit" value="Submit">
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
